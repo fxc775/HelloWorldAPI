@@ -19,6 +19,8 @@ jobs:
           sed -i 's/image: nanajanashia\/argocd-app:1.0/image: nanajanashia\/argocd-app:1.1/g' dev/deployment.yaml
           echo "running cat of new file"
           cat dev/deployment.yaml
+          git config --local user.email "action@github.com"
+          git config --local user.name "fxc775"
           git add dev/deployment.yaml
           git commit -m "Updated deployment.yaml"
           git push origin main
