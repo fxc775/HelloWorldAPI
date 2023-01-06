@@ -12,16 +12,17 @@ jobs:
         with:
           repository: fxc775/argocd-app-config
           ref: main
-      # Update the file
+     # Update the file
       - run: |
           echo "Updating file"
-          # Perform any necessary steps to update the file
+          # Replace the image in the file
+          sed -i 's/image: nanajanashia\/argocd-app:1.0/image: nanajanashia\/argocd-app:1.1/g' dev/deployment.yaml
       # Commit and push the changes
       - run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add dev/deployment.yaml
-          git commit -m "Another REPO Updated deployment.yaml"
+          git commit -m "Updated deployment.yaml"
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
