@@ -17,6 +17,9 @@ jobs:
           echo "Updating file"
           # Replace the image in the file
           sed -i 's/image: nanajanashia\/argocd-app:1.0/image: nanajanashia\/argocd-app:1.1/g' dev/deployment.yaml
+          echo dev/deployment.yaml
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       # Commit and push the changes
       - name: Commit and Push Changes
         uses: devops-infra/action-commit-push@v0.3
