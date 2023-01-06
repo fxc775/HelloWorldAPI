@@ -25,4 +25,4 @@ jobs:
           git commit -m "Updated deployment.yaml"
           git push origin main
         env:
-          GITHUB_TOKEN: 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
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
