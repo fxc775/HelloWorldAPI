@@ -3,20 +3,6 @@ name: Update file in another repository
 on:
   workflow_dispatch:
   
-permissions:
-  pull-requests: write
-  issues: write
-  repository-projects: write
-  actions: write
-  checks: write
-  contents: write
-  deployments: write
-  discussions: write
-  packages: write
-  pages: write
-  security-events: write
-  statuses: write
-  
 jobs:
   update_file:
     runs-on: ubuntu-latest
@@ -38,6 +24,4 @@ jobs:
           git add dev/deployment.yaml
           git commit -m "Updated deployment.yaml"
           git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-          ACCESS_TOKEN: ${{ secrets.PAT_TOKEN }}
+
