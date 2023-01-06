@@ -2,7 +2,12 @@ name: Update file in another repository
 
 on:
   workflow_dispatch:
-
+  
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+  
 jobs:
   update_file:
     runs-on: ubuntu-latest
