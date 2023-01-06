@@ -26,3 +26,4 @@ jobs:
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.PAT_TOKEN }}
