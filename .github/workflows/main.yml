@@ -1,0 +1,27 @@
+name: Update file in another repository
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_file:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository containing the file you want to update
+      - uses: actions/checkout@v2
+        with:
+          repository: fxc775/argocd-app-config
+          ref: main
+      # Update the file
+      - run: |
+          echo "Updating file"
+          # Perform any necessary steps to update the file
+      # Commit and push the changes
+      - run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add dev/deployment.yaml
+          git commit -m "Updated deployment.yaml"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
