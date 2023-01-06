@@ -17,13 +17,14 @@ jobs:
       - run: |
           echo "Updating file"
           # Replace the image in the file
-          sed -i 's/image: nanajanashia\/argocd-app:1.1/image: nanajanashia\/argocd-app:1.2/g' dev/deployment.yaml
-          echo "running cat of new file"
-          cat dev/deployment.yaml
+          sed -i 's/image: nanajanashia\/argocd-app:1.2/image: nanajanashia\/argocd-app:1.3/g' dev/deployment.yaml
+     # Update the file   
+      - run: |
           git config --local user.email "action@github.com"
-          git config --local user.name "fxc775"
+          git config --local user.name "GitHub Action"
           git add dev/deployment.yaml
           git commit -m "Updated deployment.yaml"
           git push origin main
+
 
 
