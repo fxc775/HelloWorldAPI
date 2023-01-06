@@ -17,7 +17,7 @@ jobs:
       - run: |
           echo "Updating file"
           # Replace the image in the file
-          sed -i 's/image: nanajanashia\/argocd-app:1.0/image: nanajanashia\/argocd-app:1.1/g' dev/deployment.yaml
+          sed -i 's/image: nanajanashia\/argocd-app:1.0/image: nanajanashia\/argocd-app:1.2/g' dev/deployment.yaml
           echo "running cat of new file"
           cat dev/deployment.yaml
           git config --local user.email "action@github.com"
@@ -25,7 +25,5 @@ jobs:
           git add dev/deployment.yaml
           git commit -m "Updated deployment.yaml"
           git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-          token: ${{ secrets.PAT_TOKEN }}
+
 
