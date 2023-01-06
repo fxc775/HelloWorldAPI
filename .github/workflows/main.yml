@@ -21,7 +21,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add dev/deployment.yaml
-          git commit -m "Updated deployment.yaml"
+          git commit -m "Another REPO Updated deployment.yaml"
           git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
