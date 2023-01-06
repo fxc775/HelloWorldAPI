@@ -12,6 +12,7 @@ jobs:
         with:
           repository: fxc775/argocd-app-config
           ref: main
+          token: ${{ secrets.PAT_TOKEN }}
      # Update the file
       - run: |
           echo "Updating file"
@@ -24,4 +25,7 @@ jobs:
           git add dev/deployment.yaml
           git commit -m "Updated deployment.yaml"
           git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
 
