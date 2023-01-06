@@ -15,18 +15,17 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
      # Update the file
       - name: Update The File with New Image
-      - run: |
+        run: |
           echo "Updating file"
           # Replace the image in the file
           sed -i 's/image: nanajanashia\/argocd-app:1.3/image: nanajanashia\/argocd-app:1.4/g' dev/deployment.yaml
      # Commit and push the changes  
       - name: Commit and Push the Changes
-      - run: |
+        run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add dev/deployment.yaml
           git commit -m "Updated deployment.yaml"
           git push origin main
-
 
 
