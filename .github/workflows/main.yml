@@ -18,11 +18,9 @@ jobs:
           # Replace the image in the file
           sed -i 's/image: nanajanashia\/argocd-app:1.0/image: nanajanashia\/argocd-app:1.1/g' dev/deployment.yaml
       # Commit and push the changes
-      - run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add dev/deployment.yaml
-          git commit -m "Updated deployment.yaml"
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - name: Commit and Push Changes
+        uses: devops-infra/action-commit-push@v0.3
+        with:
+          github_token: ${{ secrets.PAT_TOKEN }}
+          commit_message: "Updated deployment.yaml from another repo"
+      
