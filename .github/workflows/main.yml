@@ -14,11 +14,13 @@ jobs:
           ref: main
           token: ${{ secrets.PAT_TOKEN }}
      # Update the file
+      - name: Update The File with New Image
       - run: |
           echo "Updating file"
           # Replace the image in the file
-          sed -i 's/image: nanajanashia\/argocd-app:1.2/image: nanajanashia\/argocd-app:1.3/g' dev/deployment.yaml
-     # Update the file   
+          sed -i 's/image: nanajanashia\/argocd-app:1.3/image: nanajanashia\/argocd-app:1.4/g' dev/deployment.yaml
+     # Commit and push the changes  
+      - name: Commit and Push the Changes
       - run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
