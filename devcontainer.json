@@ -1,5 +1,5 @@
 {
-  "name": "My Dev Container",
+  "name": "My Dev Container Test",
   "image": "ubuntu:20.04",
   "extensions": ["ms-vscode-remote.remote-containers"],
   "postCreateCommand": "git clone https://github.com/your-username/your-repo.git && cd your-repo && apt-get update && apt-get install -y apt-transport-https && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && echo \"deb https://apt.kubernetes.io/ kubernetes-xenial main\" | tee -a /etc/apt/sources.list.d/kubernetes.list && apt-get update && apt-get install -y kubectl helm"
