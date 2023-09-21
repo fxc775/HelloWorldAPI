@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
   build:
     name: Build
-    runs-on: ubtuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
